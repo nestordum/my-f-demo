@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { BookOpen, Calendar, Link as LinkIcon, Menu, X } from 'lucide-react';
+import { BookOpen, Calendar, Link as LinkIcon, Menu, X, Settings } from 'lucide-react';
 import { Schedule } from './components/Schedule';
 import { UsefulLinks } from './components/UsefulLinks';
+import { ScheduleEditor } from './components/ScheduleEditor';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'schedule' | 'links'>('schedule');
+  const [activeTab, setActiveTab] = useState<'schedule' | 'links' | 'edit'>('schedule');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -60,6 +61,17 @@ function App() {
                 <LinkIcon className="w-5 h-5" />
                 <span>Корисні посилання</span>
               </button>
+              <button
+                onClick={() => setActiveTab('edit')}
+                className={`flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-all ${
+                  activeTab === 'edit'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                <Settings className="w-5 h-5" />
+                <span>Редагування</span>
+              </button>
             </nav>
           </div>
 
@@ -93,6 +105,20 @@ function App() {
                 <LinkIcon className="w-5 h-5" />
                 <span>Корисні посилання</span>
               </button>
+              <button
+                onClick={() => {
+                  setActiveTab('edit');
+                  setMobileMenuOpen(false);
+                }}
+                className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
+                  activeTab === 'edit'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                <Settings className="w-5 h-5" />
+                <span>Редагування</span>
+              </button>
             </nav>
           )}
         </div>
@@ -101,27 +127,41 @@ function App() {
       <main className="max-w-7xl mx-auto px-4 py-8 lg:px-8 lg:py-12">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">
-            {activeTab === 'schedule' ? 'Розклад занять' : 'Корисні посилання'}
+            {activeTab === 'schedule' ? 'Розклад занять' : activeTab === 'links' ? 'Корисні посилання' : 'Редагування розкладу'}
           </h2>
           <p className="text-gray-600">
             {activeTab === 'schedule'
               ? 'Перегляньте розклад занять для вашої групи'
-              : 'Швидкий доступ до навчальних матеріалів та ресурсів'}
+              : activeTab === 'links'
+              ? 'Швидкий доступ до навчальних матеріалів та ресурсів'
+              : 'Керуйте розкладом занять - додавайте, редагуйте та видаляйте заняття'}
           </p>
         </div>
 
-        {activeTab === 'schedule' ? <Schedule /> : <UsefulLinks />}
+        {activeTab === 'schedule' ? <Schedule /> : activeTab === 'links' ? <UsefulLinks /> : <ScheduleEditor />}
       </main>
 
       <footer className="bg-white border-t border-gray-200 mt-16">
         <div className="max-w-7xl mx-auto px-4 py-8 lg:px-8">
-          <div className="text-center text-gray-600">
-            <p className="mb-2">
-              © {new Date().getFullYear()} Гуманітарний факультет
-            </p>
-            <p className="text-sm">
-              Всі права захищено
-            </p>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-6">
+            <div className="text-center md:text-left text-gray-600">
+              <p className="mb-1 font-semibold">
+                © {new Date().getFullYear()} Гуманітарний факультет
+              </p>
+              <p className="text-sm">
+                Всі права захищено
+              </p>
+            </div>
+            <button
+              onClick={() => {
+                setActiveTab('edit');
+                window.scrollTo(0, 0);
+              }}
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg hover:shadow-lg transition-shadow font-medium"
+            >
+              <Settings className="w-4 h-4" />
+              <span>Редагувати розклад</span>
+            </button>
           </div>
         </div>
       </footer>
