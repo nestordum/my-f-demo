@@ -150,13 +150,13 @@ export function ScheduleEditor() {
       {!isFormOpen ? (
         <button
           onClick={() => setIsFormOpen(true)}
-          className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md"
+          className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors shadow-md"
         >
           <Plus className="w-5 h-5" />
           Додати заняття
         </button>
       ) : (
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg border-2 border-blue-200 p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white rounded-lg border-2 border-purple-200 p-6 space-y-4">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-gray-900">
               {editingId ? 'Редагування заняття' : 'Додавання нового заняття'}
@@ -176,7 +176,7 @@ export function ScheduleEditor() {
               <select
                 value={formData.day_of_week}
                 onChange={(e) => setFormData({ ...formData, day_of_week: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               >
                 {DAYS.map(day => (
                   <option key={day} value={day}>{day}</option>
@@ -191,7 +191,7 @@ export function ScheduleEditor() {
                 placeholder="09:00-10:30"
                 value={formData.time_slot}
                 onChange={(e) => setFormData({ ...formData, time_slot: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
 
@@ -202,7 +202,7 @@ export function ScheduleEditor() {
                 placeholder="Назва предмету"
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
 
@@ -213,7 +213,7 @@ export function ScheduleEditor() {
                 placeholder="ПІБ викладача"
                 value={formData.teacher}
                 onChange={(e) => setFormData({ ...formData, teacher: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
 
@@ -224,7 +224,7 @@ export function ScheduleEditor() {
                 placeholder="Номер аудиторії"
                 value={formData.room}
                 onChange={(e) => setFormData({ ...formData, room: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
 
@@ -235,7 +235,7 @@ export function ScheduleEditor() {
                 placeholder="Назва групи"
                 value={formData.group_name}
                 onChange={(e) => setFormData({ ...formData, group_name: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
 
@@ -244,7 +244,7 @@ export function ScheduleEditor() {
               <select
                 value={formData.lesson_type}
                 onChange={(e) => setFormData({ ...formData, lesson_type: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               >
                 {LESSON_TYPES.map(type => (
                   <option key={type} value={type}>{type}</option>
@@ -256,7 +256,7 @@ export function ScheduleEditor() {
           <div className="flex gap-3 pt-4">
             <button
               type="submit"
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="px-6 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
             >
               {editingId ? 'Зберегти зміни' : 'Додати'}
             </button>

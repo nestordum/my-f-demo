@@ -14,11 +14,11 @@ const CATEGORY_ICONS: Record<string, typeof BookOpen> = {
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'Бібліотека': 'from-rose-500 to-pink-600',
-  'Електронні ресурси': 'from-emerald-500 to-teal-600',
-  'Документи': 'from-amber-500 to-orange-600',
-  'Навчання': 'from-blue-500 to-cyan-600',
-  'Дослідження': 'from-violet-500 to-purple-600',
+  'Бібліотека': 'from-purple-500 to-purple-600',
+  'Електронні ресурси': 'from-purple-600 to-amber-500',
+  'Документи': 'from-amber-500 to-amber-600',
+  'Навчання': 'from-purple-500 to-amber-500',
+  'Дослідження': 'from-amber-500 to-purple-600',
 };
 
 export function UsefulLinks() {
@@ -76,8 +76,8 @@ export function UsefulLinks() {
           onClick={() => setSelectedCategory('all')}
           className={`px-4 py-2 rounded-lg font-medium transition-all ${
             selectedCategory === 'all'
-              ? 'bg-blue-600 text-white shadow-md'
-              : 'bg-white text-gray-700 border border-gray-300 hover:border-blue-400 hover:text-blue-600'
+              ? 'bg-purple-600 text-white shadow-md'
+              : 'bg-white text-gray-700 border border-gray-300 hover:border-purple-400 hover:text-purple-600'
           }`}
         >
           Всі категорії
@@ -88,8 +88,8 @@ export function UsefulLinks() {
             onClick={() => setSelectedCategory(category)}
             className={`px-4 py-2 rounded-lg font-medium transition-all ${
               selectedCategory === category
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-white text-gray-700 border border-gray-300 hover:border-blue-400 hover:text-blue-600'
+                ? 'bg-purple-600 text-white shadow-md'
+                : 'bg-white text-gray-700 border border-gray-300 hover:border-purple-400 hover:text-purple-600'
             }`}
           >
             {category}
@@ -122,11 +122,11 @@ export function UsefulLinks() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group bg-white rounded-lg border-2 border-gray-200 p-5 hover:border-blue-400 hover:shadow-lg transition-all duration-200"
+                      className="group bg-white rounded-lg border-2 border-gray-200 p-5 hover:border-purple-400 hover:shadow-lg transition-all duration-200"
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex-1">
-                          <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1">
+                          <h3 className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors mb-1">
                             {link.title}
                           </h3>
                           {link.description && (
@@ -135,7 +135,7 @@ export function UsefulLinks() {
                             </p>
                           )}
                         </div>
-                        <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0" />
+                        <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors flex-shrink-0" />
                       </div>
                     </a>
                   ))}

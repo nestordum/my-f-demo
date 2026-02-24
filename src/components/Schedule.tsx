@@ -74,7 +74,7 @@ export function Schedule() {
           <select
             value={selectedDay}
             onChange={(e) => setSelectedDay(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           >
             <option value="all">Всі дні</option>
             {DAYS_ORDER.map(day => (
@@ -87,7 +87,7 @@ export function Schedule() {
           <select
             value={selectedGroup}
             onChange={(e) => setSelectedGroup(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           >
             <option value="all">Всі групи</option>
             {groups.map(group => (
@@ -106,7 +106,7 @@ export function Schedule() {
         <div className="space-y-6">
           {Object.entries(scheduleByDay).map(([day, lessons]) => (
             <div key={day} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
+              <div className="bg-gradient-to-r from-purple-600 to-purple-700 px-6 py-4">
                 <h3 className="text-xl font-semibold text-white flex items-center gap-2">
                   <Calendar className="w-5 h-5" />
                   {day}

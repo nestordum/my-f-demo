@@ -9,12 +9,12 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-amber-50">
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between px-4 py-4 lg:px-8">
             <div className="flex items-center gap-3">
-              <div className="bg-gradient-to-br from-blue-600 to-cyan-600 p-2.5 rounded-xl shadow-lg">
+              <div className="bg-gradient-to-br from-purple-600 to-amber-500 p-2.5 rounded-xl shadow-lg">
                 <BookOpen className="w-7 h-7 text-white" />
               </div>
               <div>
@@ -43,7 +43,7 @@ function App() {
                 onClick={() => setActiveTab('schedule')}
                 className={`flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-all ${
                   activeTab === 'schedule'
-                    ? 'bg-blue-600 text-white shadow-md'
+                    ? 'bg-purple-600 text-white shadow-md'
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}
               >
@@ -54,7 +54,7 @@ function App() {
                 onClick={() => setActiveTab('links')}
                 className={`flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-all ${
                   activeTab === 'links'
-                    ? 'bg-blue-600 text-white shadow-md'
+                    ? 'bg-purple-600 text-white shadow-md'
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}
               >
@@ -65,7 +65,7 @@ function App() {
                 onClick={() => setActiveTab('edit')}
                 className={`flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-all ${
                   activeTab === 'edit'
-                    ? 'bg-blue-600 text-white shadow-md'
+                    ? 'bg-purple-600 text-white shadow-md'
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}
               >
@@ -84,7 +84,7 @@ function App() {
                 }}
                 className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
                   activeTab === 'schedule'
-                    ? 'bg-blue-600 text-white shadow-md'
+                    ? 'bg-purple-600 text-white shadow-md'
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}
               >
@@ -157,7 +157,7 @@ function App() {
                 setActiveTab('edit');
                 window.scrollTo(0, 0);
               }}
-              className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg hover:shadow-lg transition-shadow font-medium"
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-amber-500 text-white rounded-lg hover:shadow-lg transition-shadow font-medium"
             >
               <Settings className="w-4 h-4" />
               <span>Редагувати розклад</span>
