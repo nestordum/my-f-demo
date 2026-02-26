@@ -68,32 +68,62 @@ export function Schedule() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row gap-4">
-        <div className="flex-1">
-          <label className="block text-sm font-medium text-gray-700 mb-2">День тижня</label>
-          <select
-            value={selectedDay}
-            onChange={(e) => setSelectedDay(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-          >
-            <option value="all">Всі дні</option>
+      <div className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-3">День тижня</label>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedDay('all')}
+              className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                selectedDay === 'all'
+                  ? 'bg-purple-600 text-white shadow-md'
+                  : 'bg-white text-gray-700 border border-gray-300 hover:border-purple-400 hover:text-purple-600'
+              }`}
+            >
+              Всі дні
+            </button>
             {DAYS_ORDER.map(day => (
-              <option key={day} value={day}>{day}</option>
+              <button
+                key={day}
+                onClick={() => setSelectedDay(day)}
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  selectedDay === day
+                    ? 'bg-purple-600 text-white shadow-md'
+                    : 'bg-white text-gray-700 border border-gray-300 hover:border-purple-400 hover:text-purple-600'
+                }`}
+              >
+                {day}
+              </button>
             ))}
-          </select>
+          </div>
         </div>
-        <div className="flex-1">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Група</label>
-          <select
-            value={selectedGroup}
-            onChange={(e) => setSelectedGroup(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-          >
-            <option value="all">Всі групи</option>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-3">Група</label>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedGroup('all')}
+              className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                selectedGroup === 'all'
+                  ? 'bg-amber-500 text-white shadow-md'
+                  : 'bg-white text-gray-700 border border-gray-300 hover:border-amber-400 hover:text-amber-600'
+              }`}
+            >
+              Всі групи
+            </button>
             {groups.map(group => (
-              <option key={group} value={group}>{group}</option>
+              <button
+                key={group}
+                onClick={() => setSelectedGroup(group)}
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  selectedGroup === group
+                    ? 'bg-amber-500 text-white shadow-md'
+                    : 'bg-white text-gray-700 border border-gray-300 hover:border-amber-400 hover:text-amber-600'
+                }`}
+              >
+                {group}
+              </button>
             ))}
-          </select>
+          </div>
         </div>
       </div>
 
